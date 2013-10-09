@@ -1,0 +1,13 @@
+<h2> <%= Category.find(@post.category_id).group %>: <%= @post.item %></h2>
+
+<table >
+  <tr><th>Description</th><th>Price</th><th>Email</th></tr>
+    <tr>
+      <td class = "posts"><%= @post.description %></td>
+      <td class = "posts">$<%= @post.price %></td>
+      <td class = "posts"><%= @post.email %></td>
+    </tr>
+</table>
+<br>
+<a href='/'>Return Home</a>
+

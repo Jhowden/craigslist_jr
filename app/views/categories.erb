@@ -1,0 +1,7 @@
+
+<h1>CATEGORIES</h1>
+<% @categories.each do |category| %>
+  <p><a href="/categories/<%= category.id %>"><%= category.group %></a></p>
+<% end %>
+
+<a href='/'>Return Home</a>

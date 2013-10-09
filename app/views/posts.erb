@@ -1,0 +1,19 @@
+
+<h1><%= @category.group %> Post's</h1>
+
+<table >
+  <tr> <th>Item</th><th>Description</th><th>Price</th><th>Email</th></tr>
+  
+  <% @category.posts.each do |post| %>  
+    <tr>
+      <td class = "posts"><a href="/post/<%=post.id%>"><%= post.item %></a></td>
+      <td class = "posts"><%= post.description %></td>
+      <td class = "posts">$<%= post.price %></td>
+      <td class = "posts"><%= post.email %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+<a href='/'>Return Home</a>
+
