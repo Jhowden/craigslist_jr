@@ -22,11 +22,24 @@ get '/create_post' do
   erb :create_listing
 end
 
-post '/post/completion' do
-  @new_post = Post.create(item: params[:listing][:item], 
-                          price: params[:listing][:price],
-                          description: params[:listing][:description],
-                          email: params[:listing][:email],
-                          category_id: params[:listing][:category_id]) 
+get '/complete/:post_id' do
+  @post = Post.find(params[:post_id])
   erb :complete
 end
+
+post '/post/completion' do
+  post = Post.create(params[:listing]) 
+  redirect to "complete/#{post.id}"
+end
+
+post '/update/:post_id' do
+  updated_post = Post.find(params[:post_id])
+  updated_post.update_attributes(params[:listing]) 
+  redirect to 'post/<%= updated_post.id %>'
+end
+
+post 'delete/:post_id' do
+  deleted_post = Post.find(params[:post_id])
+  deleted_post.destroy
+end
+
